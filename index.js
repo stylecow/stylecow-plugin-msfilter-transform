@@ -8,11 +8,11 @@ module.exports = function (stylecow) {
 		},
 		Declaration: {
 			transform: function (declaration) {
-				var rule = declaration.ancestor({type: 'Rule'});
+				var rule = declaration.parent({type: 'Rule'});
 				var matrix = [];
 
 				declaration.search({type: 'Function'}).forEach(function (fn) {
-					var args = fn.getValue();
+					var args = fn.getContent();
 
 					switch (fn.name) {
 						case "rotate":
