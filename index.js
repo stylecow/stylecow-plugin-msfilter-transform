@@ -8,11 +8,11 @@ module.exports = function (stylecow) {
 		},
 		Declaration: {
 			transform: function (declaration) {
-				var rule = declaration.parent({type: 'Rule'});
+				var block = declaration.parent({type: 'Block'});
 				var matrix = [];
 
 				declaration.search({type: 'Function'}).forEach(function (fn) {
-					var args = fn.getContent();
+					var args = fn.toArray();
 
 					switch (fn.name) {
 						case "rotate":
@@ -25,19 +25,19 @@ module.exports = function (stylecow) {
 
 								switch (deg) {
 									case 90:
-										rule.addOldMsFilter('progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
+										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
 										break;
 
 									case 180:
-										rule.addOldMsFilter('progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
+										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
 										break;
 
 									case 270:
-										rule.addOldMsFilter('progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
+										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
 										break;
 
 									case 360:
-										rule.addOldMsFilter('progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
+										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
 										break;
 
 									default:
@@ -50,7 +50,7 @@ module.exports = function (stylecow) {
 
 						case "scaleX":
 							if (args[0] == -1) {
-								rule.addOldMsFilter('flipH');
+								stylecow.utils.addMsFilter(block, 'flipH');
 							} else {
 								matrix.push(getMatrix(fn.name, args));
 							}
@@ -58,7 +58,7 @@ module.exports = function (stylecow) {
 
 						case "scaleY":
 							if (args[0] == -1) {
-								rule.addOldMsFilter('flipV');
+								stylecow.utils.addMsFilter(block, 'flipV');
 							} else {
 								matrix.push(getMatrix(fn.name, args));
 							}
@@ -66,7 +66,7 @@ module.exports = function (stylecow) {
 		
 						case "scale":
 							if (args[0] == -1 && args[1] == -1) {
-								rule.addOldMsFilter('flipH, flipV');
+								stylecow.utils.addMsFilter(block, 'flipH, flipV');
 							} else {
 								matrix.push(getMatrix(fn.name, args));
 							}
@@ -91,7 +91,7 @@ module.exports = function (stylecow) {
 						}
 					}
 
-					rule.addOldMsFilter('progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
+					stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
 				}
 				
 			}
