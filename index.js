@@ -3,98 +3,100 @@ require('sylvester');
 module.exports = function (stylecow) {
 
 	stylecow.addTask({
-		disable: {
+		forBrowsersLowerThan: {
 			explorer: 9.0
 		},
-		Declaration: {
-			transform: function (declaration) {
-				var block = declaration.parent({type: 'Block'});
-				var matrix = [];
+		filter: {
+			type: 'Declaration',
+			name: 'transform'
+		},
+		fn: function (declaration) {
+			var block = declaration.parent({type: 'Block'});
+			var matrix = [];
 
-				declaration.search({type: 'Function'}).forEach(function (fn) {
-					var args = fn.toArray();
+			declaration.search({type: 'Function'}).forEach(function (fn) {
+				var args = fn.toArray();
 
-					switch (fn.name) {
-						case "rotate":
-							if (args[0].indexOf('deg') !== -1) {
-								var deg = parseInt(args[0], 10);
+				switch (fn.name) {
+					case "rotate":
+						if (args[0].indexOf('deg') !== -1) {
+							var deg = parseInt(args[0], 10);
 
-								if (deg < 0) {
-									deg += 360;
-								}
-
-								switch (deg) {
-									case 90:
-										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
-										break;
-
-									case 180:
-										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
-										break;
-
-									case 270:
-										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
-										break;
-
-									case 360:
-										stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
-										break;
-
-									default:
-										matrix.push(getMatrix(fn.name, args));
-								}
-							} else {
-								matrix.push(getMatrix(fn.name, args));
+							if (deg < 0) {
+								deg += 360;
 							}
-							break;
 
-						case "scaleX":
-							if (args[0] == -1) {
-								stylecow.utils.addMsFilter(block, 'flipH');
-							} else {
-								matrix.push(getMatrix(fn.name, args));
-							}
-							break;
+							switch (deg) {
+								case 90:
+									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
+									break;
 
-						case "scaleY":
-							if (args[0] == -1) {
-								stylecow.utils.addMsFilter(block, 'flipV');
-							} else {
-								matrix.push(getMatrix(fn.name, args));
-							}
-							break;
-		
-						case "scale":
-							if (args[0] == -1 && args[1] == -1) {
-								stylecow.utils.addMsFilter(block, 'flipH, flipV');
-							} else {
-								matrix.push(getMatrix(fn.name, args));
-							}
-							break;
+								case 180:
+									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
+									break;
 
-						case "matrix":
-						case "skew":
-						case "skewX":
-						case "skewY":
+								case 270:
+									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
+									break;
+
+								case 360:
+									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
+									break;
+
+								default:
+									matrix.push(getMatrix(fn.name, args));
+							}
+						} else {
 							matrix.push(getMatrix(fn.name, args));
-							break;
 						}
-				});
+						break;
 
-
-				if (matrix.length) {
-					var m = matrix[0];
-
-					for (var k = 0; k < matrix.length; k++) {
-						if (matrix[k+1]) {
-							m = m.x(matrix[k+1]);
+					case "scaleX":
+						if (args[0] == -1) {
+							stylecow.utils.addMsFilter(block, 'flipH');
+						} else {
+							matrix.push(getMatrix(fn.name, args));
 						}
+						break;
+
+					case "scaleY":
+						if (args[0] == -1) {
+							stylecow.utils.addMsFilter(block, 'flipV');
+						} else {
+							matrix.push(getMatrix(fn.name, args));
+						}
+						break;
+	
+					case "scale":
+						if (args[0] == -1 && args[1] == -1) {
+							stylecow.utils.addMsFilter(block, 'flipH, flipV');
+						} else {
+							matrix.push(getMatrix(fn.name, args));
+						}
+						break;
+
+					case "matrix":
+					case "skew":
+					case "skewX":
+					case "skewY":
+						matrix.push(getMatrix(fn.name, args));
+						break;
 					}
+			});
 
-					stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
+
+			if (matrix.length) {
+				var m = matrix[0];
+
+				for (var k = 0; k < matrix.length; k++) {
+					if (matrix[k+1]) {
+						m = m.x(matrix[k+1]);
+					}
 				}
-				
+
+				stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
 			}
+			
 		}
 	});
 };
