@@ -1,0 +1,24 @@
+div {
+	transform: scaleX(-1);
+}
+div {
+	transform: scaleY(-1);
+}
+div {
+	transform: scale(2, 1.5);
+}
+div {
+	transform: rotate(90deg);
+}
+div {
+	transform: rotate(180deg);
+}
+div {
+	transform: rotate(-90deg);
+}
+div {
+	transform: rotate(45deg);
+}
+div {
+	transform: rotate(45deg) scale(2, 2);
+}

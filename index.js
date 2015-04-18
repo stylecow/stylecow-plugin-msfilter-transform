@@ -11,10 +11,10 @@ module.exports = function (stylecow) {
 			name: 'transform'
 		},
 		fn: function (declaration) {
-			var block = declaration.parent('Block');
+			var block = declaration.getParent('Block');
 			var matrix = [];
 
-			declaration.search('Function').forEach(function (fn) {
+			declaration.getAll('Function').forEach(function (fn) {
 				var args = fn.toArray();
 
 				switch (fn.name) {

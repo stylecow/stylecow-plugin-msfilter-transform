@@ -1,0 +1,32 @@
+div {
+	transform: scaleX(-1);
+	-ms-filter: "flipH";
+}
+div {
+	transform: scaleY(-1);
+	-ms-filter: "flipV";
+}
+div {
+	transform: scale(2, 1.5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=2,M12=0,M21=0,M22=2)";
+}
+div {
+	transform: rotate(90deg);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+}
+div {
+	transform: rotate(180deg);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+}
+div {
+	transform: rotate(-90deg);
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+}
+div {
+	transform: rotate(45deg);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=0.7071067811865476,M12=-0.7071067811865475,M21=0.7071067811865475,M22=0.7071067811865476)";
+}
+div {
+	transform: rotate(45deg) scale(2, 2);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=1.4142135623730951,M12=-1.414213562373095,M21=1.414213562373095,M22=1.4142135623730951)";
+}

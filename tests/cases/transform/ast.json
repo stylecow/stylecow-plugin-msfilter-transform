@@ -1,0 +1,613 @@
+{
+  "class": "Root",
+  "children": [
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "scaleX",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": -1
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "flipH"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "scaleY",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": -1
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "flipV"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "scale",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": 2
+                            }
+                          ]
+                        },
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": 1.5
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=2,M12=0,M21=0,M22=2)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "rotate",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Unit",
+                              "name": "deg",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 90
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "rotate",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Unit",
+                              "name": "deg",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 180
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "rotate",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Unit",
+                              "name": "deg",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": -90
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "rotate",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Unit",
+                              "name": "deg",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 45
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=0.7071067811865476,M12=-0.7071067811865475,M21=0.7071067811865475,M22=0.7071067811865476)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Rule",
+      "children": [
+        {
+          "class": "Selectors",
+          "children": [
+            {
+              "class": "Selector",
+              "children": [
+                {
+                  "class": "TypeSelector",
+                  "name": "div"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "class": "Block",
+          "children": [
+            {
+              "class": "Declaration",
+              "name": "transform",
+              "vendor": null,
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Function",
+                      "name": "rotate",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Unit",
+                              "name": "deg",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 45
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "class": "Function",
+                      "name": "scale",
+                      "vendor": null,
+                      "children": [
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": 2
+                            }
+                          ]
+                        },
+                        {
+                          "class": "Value",
+                          "children": [
+                            {
+                              "class": "Number",
+                              "name": 2
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "filter",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "String",
+                      "name": "progid:DXImageTransform.Microsoft.Matrix(sizingMethod=auto expand,M11=1.4142135623730951,M12=-1.414213562373095,M21=1.414213562373095,M22=1.4142135623730951)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
