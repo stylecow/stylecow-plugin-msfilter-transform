@@ -1,6 +1,8 @@
 stylecow plugin msfilter-transform
 ==================================
 
+[![Build Status](https://travis-ci.org/stylecow/stylecow-plugin-msfilter-transform.svg)](https://travis-ci.org/stylecow/stylecow-plugin-msfilter-transform)
+
 Stylecow plugin to add ms filters emulating some 2d transforms: rotate(), scale(), skew(), matrix(), etc
 
 Some code has been taken from https://github.com/pbakaus/transformie (thanks so much, guys!!)
@@ -21,3 +23,5 @@ p {
 	-ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = 1, M12 = 0, M21 = 0.5773502691896257, M22 = 1)';
 }
 ```
+
+More demos in [the tests folder](https://github.com/stylecow/stylecow-plugin-msfilter-transform/tree/master/tests/cases)
