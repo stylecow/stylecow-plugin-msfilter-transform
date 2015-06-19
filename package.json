@@ -1,7 +1,7 @@
 {
   "name": "stylecow-plugin-msfilter-transform",
   "description": "Stylecow plugin to add ms filters emulating some 2d transforms: rotate(), scale(), skew(), matrix(), etc",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "author": "Oscar Otero <oom@oscarotero.com>",
   "homepage": "https://github.com/stylecow/stylecow-plugin-msfilter-transform",
   "bugs": "https://github.com/stylecow/stylecow-plugin-msfilter-transform/issues",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "mocha": "^2.2.5",
-    "stylecow": "6.*"
+    "stylecow-core": "^1.0.1"
   },
   "scripts": {
     "test": "mocha tests/cases.js"

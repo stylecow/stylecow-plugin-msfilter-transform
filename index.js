@@ -28,19 +28,19 @@ module.exports = function (stylecow) {
 
 							switch (deg) {
 								case 90:
-									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
+									addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=1)');
 									break;
 
 								case 180:
-									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
+									addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=2)');
 									break;
 
 								case 270:
-									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
+									addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=3)');
 									break;
 
 								case 360:
-									stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
+									addMsFilter(block, 'progid:DXImageTransform.Microsoft.BasicImage(rotation=4)');
 									break;
 
 								default:
@@ -53,7 +53,7 @@ module.exports = function (stylecow) {
 
 					case "scaleX":
 						if (args[0] == -1) {
-							stylecow.utils.addMsFilter(block, 'flipH');
+							addMsFilter(block, 'flipH');
 						} else {
 							matrix.push(getMatrix(fn.name, args));
 						}
@@ -61,7 +61,7 @@ module.exports = function (stylecow) {
 
 					case "scaleY":
 						if (args[0] == -1) {
-							stylecow.utils.addMsFilter(block, 'flipV');
+							addMsFilter(block, 'flipV');
 						} else {
 							matrix.push(getMatrix(fn.name, args));
 						}
@@ -69,7 +69,7 @@ module.exports = function (stylecow) {
 	
 					case "scale":
 						if (args[0] == -1 && args[1] == -1) {
-							stylecow.utils.addMsFilter(block, 'flipH, flipV');
+							addMsFilter(block, 'flipH, flipV');
 						} else {
 							matrix.push(getMatrix(fn.name, args));
 						}
@@ -94,11 +94,40 @@ module.exports = function (stylecow) {
 					}
 				}
 
-				stylecow.utils.addMsFilter(block, 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
+				addMsFilter(block, 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod="auto expand", M11 = ' + m.elements[0][0] + ', M12 = ' + m.elements[0][1] + ', M21 = ' + m.elements[1][0] + ', M22 = ' + m.elements[1][1] + ')');
 			}
 			
 		}
 	});
+
+	function addMsFilter (block, filter) {
+		var declaration = block.getChild({
+				type: 'Declaration',
+				name: 'filter',
+				vendor: 'ms'
+			});
+
+		if (!declaration) {
+			return block.push(stylecow.parse('-ms-filter: ' + filter, 'Declaration', 'createMsFilter'));
+		}
+
+		if (declaration.is({string: '-ms-filter: none;'})) {
+			return declaration
+				.get({
+					type: 'Keyword',
+					name: 'none'
+				})
+				.replaceWith((new stylecow.String()).setName(filter));
+		}
+
+		var string = declaration.get('String');
+
+		if (string.name) {
+			string.name += ',' + filter;
+		} else {
+			string.name = filter;
+		}
+	}
 };
 
 function toRadian (value) {
