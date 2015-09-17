@@ -17,7 +17,7 @@
     "sylvester": "0.0.21"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.2",
     "stylecow-core": "^2.0.0"
   },
   "scripts": {
